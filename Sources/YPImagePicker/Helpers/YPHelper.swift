@@ -26,7 +26,7 @@ struct YPHelper {
     static func configureNavigationBarUI(controller: UIViewController, backButtonIcon: UIImage) {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.backgroundColor = .systemBackground
+        navBarAppearance.backgroundColor = YPConfig.colors.navigationBarBackgroundColor
         navBarAppearance.backgroundImage = UIImage()
         navBarAppearance.shadowImage = UIImage()
         navBarAppearance.shadowColor = .clear

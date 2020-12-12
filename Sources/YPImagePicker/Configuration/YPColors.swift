@@ -18,6 +18,8 @@ public struct YPColors {
     /// A color for navigation bar spinner.
     /// Default is nil, which is default iOS gray UIActivityIndicator.
     public var navigationBarActivityIndicatorColor: UIColor?
+
+    public var navigationBarBackgroundColor: UIColor? = .systemGray6
     
     /// A color for circle for selected items in multiple selection
     /// Default is nil, which takes tintColor.
