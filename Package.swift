@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "YPImagePicker",
     defaultLocalization: "en",
-    platforms: [.iOS(.v12)],
+    platforms: [.iOS(.v13)],
     products: [ .library(name: "YPImagePicker", targets: ["YPImagePicker"]) ],
     dependencies: [
         .package(url: "https://github.com/tolgaarikan/PryntTrimmerView", .branch("customization"))

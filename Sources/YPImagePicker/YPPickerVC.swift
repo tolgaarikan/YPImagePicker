@@ -122,8 +122,22 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
+
+        configureNavigationBarUI()
     }
-    
+
+    func configureNavigationBarUI() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = .systemBackground
+        navBarAppearance.backgroundImage = UIImage()
+        navBarAppearance.shadowImage = UIImage()
+        navBarAppearance.shadowColor = .clear
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+    }
+
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraVC?.v.shotButton.isEnabled = true
