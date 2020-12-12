@@ -9,7 +9,7 @@ let package = Package(
     platforms: [.iOS(.v12)],
     products: [ .library(name: "YPImagePicker", targets: ["YPImagePicker"]) ],
     dependencies: [
-        .package(url: "https://github.com/HHK1/PryntTrimmerView", .exact("4.0.2"))
+        .package(url: "https://github.com/tolgaarikan/PryntTrimmerView", .branch("customization"))
     ],
     targets: [
         .target(name: "YPImagePicker", dependencies: ["PryntTrimmerView"]),
