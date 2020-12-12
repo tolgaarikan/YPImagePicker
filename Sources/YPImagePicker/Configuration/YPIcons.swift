@@ -10,7 +10,6 @@ import UIKit
 
 public struct YPIcons {
 
-    public var shouldChangeDefaultBackButtonIcon = false
     public var hideBackButtonTitle = true
     
     public var backButtonIcon: UIImage = imageFromBundle("yp_arrow_left")

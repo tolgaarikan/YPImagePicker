@@ -23,12 +23,21 @@ internal func imageFromBundle(_ named: String) -> UIImage {
 }
 
 struct YPHelper {
+    static func configureNavigationBarUI(controller: UIViewController, backButtonIcon: UIImage) {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = .systemBackground
+        navBarAppearance.backgroundImage = UIImage()
+        navBarAppearance.shadowImage = UIImage()
+        navBarAppearance.shadowColor = .clear
+        navBarAppearance.setBackIndicatorImage(backButtonIcon, transitionMaskImage: backButtonIcon)
+        controller.navigationController?.navigationBar.isTranslucent = false
+        controller.navigationController?.navigationBar.standardAppearance = navBarAppearance
+        controller.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+    }
+
     static func changeBackButtonIcon(_ controller: UIViewController) {
-        if YPConfig.icons.shouldChangeDefaultBackButtonIcon {
-            let backButtonIcon = YPConfig.icons.backButtonIcon
-            controller.navigationController?.navigationBar.backIndicatorImage = backButtonIcon
-            controller.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonIcon
-        }
+        configureNavigationBarUI(controller: controller, backButtonIcon: YPConfig.icons.backButtonIcon)
     }
     
     static func changeBackButtonTitle(_ controller: UIViewController) {
