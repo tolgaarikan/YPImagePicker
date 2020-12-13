@@ -11,7 +11,7 @@ import AVFoundation
 // MARK: Trim
 
 extension AVAsset {
-    func assetByTrimming(startTime: CMTime, endTime: CMTime) throws -> AVAsset {
+    public func assetByTrimming(startTime: CMTime, endTime: CMTime) throws -> AVAsset {
         let timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: endTime)
         let composition = AVMutableComposition()
         do {
