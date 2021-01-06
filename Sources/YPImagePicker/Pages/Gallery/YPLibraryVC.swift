@@ -427,6 +427,19 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     private func fetchVideoAndApplySettings(for asset: PHAsset,
                                             withCropRect rect: CGRect? = nil,
                                             callback: @escaping (_ videoURL: URL?) -> Void) {
+
+        if rect == nil {
+            let options: PHVideoRequestOptions = PHVideoRequestOptions()
+            options.version = .current
+            PHImageManager.default().requestAVAsset(forVideo: asset, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                if let urlAsset = asset as? AVURLAsset {
+                    let localVideoUrl: URL = urlAsset.url as URL
+                    callback(localVideoUrl)
+                }
+            })
+            return
+        }
+
         let normalizedCropRect = rect ?? DispatchQueue.main.sync { v.currentCropRect() }
         let ts = targetSize(for: asset, cropRect: normalizedCropRect)
         let xCrop: CGFloat = normalizedCropRect.origin.x * CGFloat(asset.pixelWidth)
